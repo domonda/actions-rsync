@@ -1,0 +1,22 @@
+name: "rsync"
+description: "Copy files to another host over a remote shell"
+author: "domonda GmbH"
+
+inputs:
+  deploy-key:
+    description: "The SSH deployment key used to authenticate at the destination host"
+    required: true
+  from:
+    description: "Workspace relative path from which you want to copy files from"
+    required: true
+  to:
+    description: "Destination path including in the usual rsync format USER@HOST:DEST"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.deploy-key }}
+    - ${{ inputs.from }}
+    - ${{ inputs.to }}
