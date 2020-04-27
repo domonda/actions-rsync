@@ -3,8 +3,8 @@ description: "Copy files to another host over a remote shell"
 author: "domonda GmbH"
 
 inputs:
-  deploy-key:
-    description: "The SSH deployment key used to authenticate at the destination host"
+  ssh-identity:
+    description: "The SSH identity used to authenticate at the destination host"
     required: true
   from:
     description: "Workspace relative path from which you want to copy files from"
@@ -17,6 +17,6 @@ runs:
   using: "docker"
   image: "Dockerfile"
   args:
-    - ${{ inputs.deploy-key }}
+    - ${{ inputs.ssh-identity }}
     - ${{ inputs.from }}
     - ${{ inputs.to }}
