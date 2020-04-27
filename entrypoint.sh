@@ -20,5 +20,11 @@ if [ -z "$FROM" ] || [ -z "$TO" ]; then
   exit 1
 fi
 
+# delete
+ARGS=
+if [ "$4" = "true" ]; then
+  ARGS="--delete"
+fi
+
 # do rsync
-sh -c "rsync -avhO --no-perms -e 'ssh -i $SSH_PATH/SSH_IDENTITY -o StrictHostKeyChecking=no' $GITHUB_WORKSPACE/$FROM $TO"
+sh -c "rsync $ARGS -avhO --no-perms -e 'ssh -i $SSH_PATH/SSH_IDENTITY -o StrictHostKeyChecking=no' $GITHUB_WORKSPACE/$FROM $TO"

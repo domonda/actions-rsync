@@ -12,6 +12,8 @@ inputs:
   to:
     description: "Destination path including in the usual rsync format USER@HOST:DEST"
     required: true
+  delete:
+    description: "Delete extraneous files from destination"
 
 runs:
   using: "docker"
@@ -20,3 +22,4 @@ runs:
     - ${{ inputs.ssh-identity }}
     - ${{ inputs.from }}
     - ${{ inputs.to }}
+    - ${{ inputs.delete }}
