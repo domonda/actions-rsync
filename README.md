@@ -32,6 +32,8 @@ with:
   deploy-key: ${{ secrets.DEPLOY_KEY }}
   from: dist
   to: john@example.com:/srv/example.com
+  delete: true
+  exclude: "'*.map'"
 ```
 
 # License
