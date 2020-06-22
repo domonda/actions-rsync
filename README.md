@@ -16,6 +16,14 @@ Copy files to another host over a remote shell.
 
 **Required** Destination path including in the usual rsync format USER@HOST:DEST.
 
+### `delete`
+
+_Optional_ Delete extraneous files from destination.
+
+### `exclude`
+
+_Optional_ Exclude files matching the pattern.
+
 ## Example usage
 
 ```yaml
