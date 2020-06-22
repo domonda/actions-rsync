@@ -20,10 +20,14 @@ if [ -z "$FROM" ] || [ -z "$TO" ]; then
   exit 1
 fi
 
-# delete
 ARGS=
+# delete
 if [ "$4" = "true" ]; then
   ARGS="--delete"
+fi
+# exclude
+if [ -n "$5" ]; then
+  ARGS="$ARGS --exclude=$5"
 fi
 
 # do rsync
